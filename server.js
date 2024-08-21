@@ -48,14 +48,27 @@ app.post('/submit-request', async (req, res) => {
         `
     };
 
-    try {   
+    // try {   
+    //     // Send email
+    //     await transporter.sendMail(mailOptions);
+    //     res.status(200).send('Request submitted successfully');
+    // } catch (error) {
+    //     console.error('Error sending email:', error);
+    //     res.status(500).send('Error submitting request');
+    // }
+    
+    try {
         // Send email
         await transporter.sendMail(mailOptions);
-        res.status(200).send('Request submitted successfully');
+        // Respond with a JSON object
+        res.status(200).json({ success: true, message: 'Request submitted successfully' });
     } catch (error) {
         console.error('Error sending email:', error);
-        res.status(500).send('Error submitting request');
+        // Respond with a JSON object
+        res.status(500).json({ success: false, message: 'Error submitting request' });
     }
+    
+
 });
 
 app.listen(port, () => {
