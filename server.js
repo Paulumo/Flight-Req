@@ -48,15 +48,7 @@ app.post('/submit-request', async (req, res) => {
         `
     };
 
-    // try {   
-    //     // Send email
-    //     await transporter.sendMail(mailOptions);
-    //     res.status(200).send('Request submitted successfully');
-    // } catch (error) {
-    //     console.error('Error sending email:', error);
-    //     res.status(500).send('Error submitting request');
-    // }
-    
+
     try {
         // Send email
         await transporter.sendMail(mailOptions);
