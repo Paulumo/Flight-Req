@@ -15,17 +15,13 @@ app.use('/src', express.static('src'));
 
 // Create a transporter using SMTP
 let transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com",
-    port: 587,
-    secure: false, // Use TLS
+    service: 'gmail',
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
-    },
-    tls : {
-        ciphers:'SSLv3'
     }
 });
+
 
 // Handle form submission
 app.post('/submit-request', async (req, res) => {
