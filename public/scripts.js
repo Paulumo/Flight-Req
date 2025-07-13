@@ -1,4 +1,3 @@
-
 document.getElementById('requestForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -45,7 +44,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
         if (response.ok) {
             Swal.fire({
                 title: 'Success!',
-                text: 'Request submitted successfully!',
+                html: 'Request submitted successfully!<br>We will get back to you as soon as possible.',
                 icon: 'success',
                 confirmButtonText: 'OK'
             });
